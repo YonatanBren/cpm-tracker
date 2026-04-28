@@ -4364,9 +4364,11 @@ ${nextUp.length?`<div class="section"><h2>Starting Within 14 Days</h2>${nextUp.s
           user_id:_su.id, data:window.store,
           updated_at:new Date().toISOString()
         },{onConflict:'user_id'});
-      } catch(e){ console.warn('dbSave',e); }
-    }, 1500); // debounce 1.5s
+        console.log('[Supabase] synced');
+      } catch(e){ console.warn('[Supabase] save failed',e); }
+    }, 800);
   }
+  window.dbSave = dbSave;
 
   // Patch saveStore to also push to Supabase
   window.addEventListener('load', function(){
@@ -5325,9 +5327,11 @@ function getROIAlerts(){
           user_id:_su.id, data:window.store,
           updated_at:new Date().toISOString()
         },{onConflict:'user_id'});
-      } catch(e){ console.warn('dbSave',e); }
-    }, 1500); // debounce 1.5s
+        console.log('[Supabase] synced');
+      } catch(e){ console.warn('[Supabase] save failed',e); }
+    }, 800);
   }
+  window.dbSave = dbSave;
 
   // Patch saveStore to also push to Supabase
   window.addEventListener('load', function(){
